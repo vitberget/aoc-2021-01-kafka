@@ -4,6 +4,7 @@ import io.ktor.http.*
 import io.ktor.server.routing.*
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
+import io.ktor.server.request.*
 import io.ktor.server.response.*
 
 fun Application.configureRouting() {
@@ -16,7 +17,8 @@ fun Application.configureRouting() {
         }
 
         post("/") {
-            println("POST")
+            val text = call.receiveText()
+            println("Received $text")
 
             call.respond(HttpStatusCode.Created)
         }
