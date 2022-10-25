@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Advent of Code, 2021 day 1 - Kafka edition</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 100rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea {
+            height: 30rem;
+        }
+
+        input {
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body>
-    I am a pancake!
+I am a pancake!
+<form method="post">
+    <textarea id="puzzle-data"
+              placeholder="Klistra in ditt pussel här"></textarea>
+    <input type="submit"
+           value="Puzzle me this"/>
+</form>
 </body>
 </html>

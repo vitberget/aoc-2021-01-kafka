@@ -21,7 +21,7 @@ fun Application.configureRouting() {
             val text = call.receiveText()
             println("Received $text")
             kafkaTo("test", "stuff")
-            call.respond(HttpStatusCode.Created)
+            call.respond(HttpStatusCode.Created, "Tack tack!")
         }
     }
 }

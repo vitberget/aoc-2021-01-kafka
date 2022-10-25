@@ -8,7 +8,7 @@ import io.ktor.server.netty.*
 
 fun main() {
     val port = 8011
-    println("PuzzleReceiver port: $port")
+    println("PuzzleReceiver port: $port http://localhost:$port/")
     embeddedServer(
         Netty,
         port = port,
