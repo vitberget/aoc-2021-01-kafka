@@ -3,13 +3,13 @@
  */
 package se.vitberget.aoc.kafka
 
-class App {
+class App1 {
     val greeting: String
         get() {
-            return "Hello World!"
+            return "Hello World! app1"
         }
 }
 
 fun main() {
-    println(App().greeting)
+    println(App1().greeting)
 }

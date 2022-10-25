@@ -8,4 +8,7 @@
  */
 
 rootProject.name = "aoc-kafka"
-include("app")
+include(
+    "app-one",
+    "app-two"
+)

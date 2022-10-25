@@ -38,5 +38,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("se.vitberget.aoc.kafka.AppKt")
+    mainClass.set("se.vitberget.aoc.kafka.App1Kt")
 }
