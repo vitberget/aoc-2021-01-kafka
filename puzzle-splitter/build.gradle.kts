@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":kafka-things"))
     implementation("org.apache.kafka:kafka-clients:3.3.1")
 
     // Align versions of all Kotlin components
@@ -40,5 +41,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("se.vitberget.aoc.kafka.App2Kt")
+    mainClass.set("se.vitberget.aoc.kafka.PuzzleSplitterKt")
 }

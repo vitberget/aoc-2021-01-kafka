@@ -25,6 +25,8 @@ dependencies {
     implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation(project(":kafka-things"))
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
+
 
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
@@ -44,5 +46,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("se.vitberget.aoc.kafka.PuzzleReceiverKt")
+    mainClass.set("se.vitberget.aoc.kafka.PuzzleCounterKt")
 }
