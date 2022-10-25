@@ -10,3 +10,9 @@ Having fun with Kafka and multiple Gradle modules.
 4. sum increases, show on webpage
 
 5. compare numbers part2 -> send if increase
+
+## Get ready
+
+1. ```shell
+   wget https://www.apache.org/dyn/closer.cgi?path=/kafka/3.3.1/kafka_2.13-3.3.1.tgz
+   ```

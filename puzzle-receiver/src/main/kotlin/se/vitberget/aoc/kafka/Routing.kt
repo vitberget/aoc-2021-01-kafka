@@ -18,10 +18,10 @@ fun Application.configureRouting() {
         }
 
         post("/") {
-            val text = call.receiveText()
-            println("Received $text")
-            kafkaTo("test", "stuff")
-            call.respond(HttpStatusCode.Created, "Tack tack!")
+            val puzzle = call.receiveParameters()["puzzle-data"].toString()
+            println("Received $puzzle")
+            kafkaTo("test", puzzle)
+            call.respond(HttpStatusCode.Created, "Tack tack! $puzzle")
         }
     }
 }
