@@ -6,6 +6,7 @@ import io.ktor.server.application.*
 import io.ktor.server.http.content.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
+import se.vitberget.aoc.kafka.things.kafkaTo
 
 fun Application.configureRouting() {
     routing {
@@ -19,7 +20,7 @@ fun Application.configureRouting() {
         post("/") {
             val text = call.receiveText()
             println("Received $text")
-
+            kafkaTo("test", "stuff")
             call.respond(HttpStatusCode.Created)
         }
     }

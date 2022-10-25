@@ -10,5 +10,7 @@
 rootProject.name = "aoc-kafka"
 include(
     "puzzle-receiver",
-    "app-two"
+    "app-two",
+
+	"kafka-things"
 )
