@@ -20,8 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":shared"))
-
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
 
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
