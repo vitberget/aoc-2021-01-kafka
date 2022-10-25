@@ -42,5 +42,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("se.vitberget.aoc.kafka.PuzzleComparePart1Kt")
+    mainClass.set("se.vitberget.aoc.kafka.PuzzleComparePart2Kt")
 }
