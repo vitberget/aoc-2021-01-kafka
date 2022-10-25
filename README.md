@@ -13,6 +13,19 @@ Having fun with Kafka and multiple Gradle modules.
 
 ## Get ready
 
-1. ```shell
+<https://kafka.apache.org/quickstart>
+
+1. Download and extract
+   ```shell
    wget https://www.apache.org/dyn/closer.cgi?path=/kafka/3.3.1/kafka_2.13-3.3.1.tgz
+   tar -xzf kafka_2.13-3.3.1.tgz
+   cd kafka_2.13-3.3.1
+   ```
+2. Start zookeeper:
+   ```shell
+   bin/zookeeper-server-start.sh config/zookeeper.properties
+   ```
+3. Start kafka server (in antoher terminal):
+   ```shell
+   bin/kafka-server-start.sh config/server.properties
    ```
