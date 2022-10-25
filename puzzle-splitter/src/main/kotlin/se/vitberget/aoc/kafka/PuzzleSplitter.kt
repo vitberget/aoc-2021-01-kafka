@@ -7,8 +7,8 @@ import se.vitberget.aoc.kafka.things.kafkaTo
 
 fun main() {
     println("Creating topics")
-    createTopic("puzzle", 1, 1)
-    createTopic("lines", 1, 1)
+    createTopic("puzzle")
+    createTopic("lines")
 
     println("Starting listening")
 

@@ -9,8 +9,8 @@ import java.util.concurrent.ConcurrentHashMap
 
 fun main() {
     println("Creating topics")
-    createTopic("lines", 1, 1)
-    createTopic("count", 1, 1)
+    createTopic("lines")
+    createTopic("count")
 
     println("Starting listening")
 

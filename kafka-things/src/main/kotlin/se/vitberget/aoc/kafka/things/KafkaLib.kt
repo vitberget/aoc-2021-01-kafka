@@ -57,14 +57,9 @@ fun kafkaFrom(topic: String, groupId: String, action: (ConsumerRecord<String, St
     }
 }
 
-fun createTopic(
-    topic: String,
-    partitions: Int,
-    replication: Short
-
-) {
+fun createTopic(topic: String) {
     println("create topic $topic")
-    val newTopic = NewTopic(topic, partitions, replication)
+    val newTopic = NewTopic(topic, 1, 1)
 
     try {
         with(AdminClient.create(cloudConfig)) {
@@ -73,7 +68,11 @@ fun createTopic(
                 .get()
         }
     } catch (e: ExecutionException) {
-        e.printStackTrace()
-        if (e.cause !is TopicExistsException) throw e
+        if (e.cause is TopicExistsException)
+            println("topic $topic already exists")
+        else {
+            e.printStackTrace()
+            throw e
+        }
     }
 }

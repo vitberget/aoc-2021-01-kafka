@@ -6,7 +6,7 @@ import se.vitberget.aoc.kafka.things.createTopic
 
 fun main() {
     println("Creating topic")
-    createTopic("puzzle", 1, 1)
+    createTopic("puzzle")
     val port = 8011
     println("PuzzleReceiver port: $port http://localhost:$port/")
 
