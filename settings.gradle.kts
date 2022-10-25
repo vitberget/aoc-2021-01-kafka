@@ -9,6 +9,6 @@
 
 rootProject.name = "aoc-kafka"
 include(
-    "app-one",
+    "puzzle-receiver",
     "app-two"
 )
