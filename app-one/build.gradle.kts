@@ -19,7 +19,13 @@ repositories {
     mavenCentral()
 }
 
+val ktor_version = "2.1.2"
+
 dependencies {
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
+    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
+
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
 
@@ -38,5 +44,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("se.vitberget.aoc.kafka.App1Kt")
+    mainClass.set("se.vitberget.aoc.kafka.PuzzleReceiverKt")
 }
