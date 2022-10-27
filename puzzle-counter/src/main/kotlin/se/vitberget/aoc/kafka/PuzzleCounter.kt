@@ -3,13 +3,13 @@ package se.vitberget.aoc.kafka
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.apache.kafka.clients.consumer.ConsumerRecord
-import se.vitberget.aoc.kafka.things.createTopic
+import se.vitberget.aoc.kafka.things.createTopics
 import se.vitberget.aoc.kafka.things.kafkaFrom
 
 
 fun main() {
     println("Creating topics")
-    createTopic("count")
+    createTopics("count")
 
     val port = 8012
     println("PuzzleReceiver port: $port http://localhost:$port/")

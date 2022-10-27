@@ -1,14 +1,13 @@
 package se.vitberget.aoc.kafka
 
 import org.apache.kafka.clients.consumer.ConsumerRecord
-import se.vitberget.aoc.kafka.things.createTopic
+import se.vitberget.aoc.kafka.things.createTopics
 import se.vitberget.aoc.kafka.things.kafkaFrom
 import se.vitberget.aoc.kafka.things.kafkaTo
 
 fun main() {
     println("Creating topics")
-    createTopic("puzzle")
-    createTopic("lines")
+    createTopics("puzzle", "lines")
 
     println("Starting listening")
 

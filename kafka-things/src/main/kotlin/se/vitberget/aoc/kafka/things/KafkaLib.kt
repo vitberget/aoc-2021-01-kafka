@@ -14,7 +14,6 @@ import org.apache.kafka.common.serialization.StringSerializer
 import java.io.FileInputStream
 import java.time.Duration
 import java.util.*
-import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ExecutionException
 
 private val cloudConfig = loadPropFile("/home/k/src/aoc/aoc-kafka/kafka.properties")
@@ -32,11 +31,11 @@ private val producerConfig =
         this[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
     }
 
+private val producer = KafkaProducer<String, String>(producerConfig)
+
 fun kafkaTo(topic: String, content: String) {
     kafkaTo(topic, UUID.randomUUID().toString(), content)
 }
-
-private val producer = KafkaProducer<String, String>(producerConfig)
 
 fun kafkaTo(topic: String, key: String, content: String) {
     println("kafkaTo $topic")
@@ -63,20 +62,16 @@ fun kafkaFrom(topic: String, groupId: String, action: (ConsumerRecord<String, St
     }
 }
 
-fun createTopic(topic: String) {
-    println("create topic $topic")
-    val newTopic = NewTopic(topic, 1, 1)
-
+fun createTopics(vararg topics: String) {
     try {
+        println("create topics: ${topics.joinToString()}")
         with(AdminClient.create(cloudConfig)) {
-            createTopics(listOf(newTopic))
+            createTopics(topics.map { NewTopic(it, 1, 1) })
                 .all()
                 .get()
         }
     } catch (e: ExecutionException) {
-        if (e.cause is TopicExistsException)
-            println("topic $topic already exists")
-        else {
+        if (e.cause !is TopicExistsException) {
             e.printStackTrace()
             throw e
         }

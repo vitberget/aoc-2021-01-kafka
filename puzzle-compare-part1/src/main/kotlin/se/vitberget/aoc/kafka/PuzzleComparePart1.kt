@@ -2,15 +2,14 @@ package se.vitberget.aoc.kafka
 
 
 import org.apache.kafka.clients.consumer.ConsumerRecord
-import se.vitberget.aoc.kafka.things.createTopic
+import se.vitberget.aoc.kafka.things.createTopics
 import se.vitberget.aoc.kafka.things.kafkaFrom
 import se.vitberget.aoc.kafka.things.kafkaTo
 import java.util.concurrent.ConcurrentHashMap
 
 fun main() {
     println("Creating topics")
-    createTopic("lines")
-    createTopic("count")
+    createTopics("lines", "count")
 
     println("Starting listening")
 
