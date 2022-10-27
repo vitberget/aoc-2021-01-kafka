@@ -6,7 +6,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecord
 import se.vitberget.aoc.kafka.things.createTopics
 import se.vitberget.aoc.kafka.things.kafkaFrom
 
-
 fun main() {
     println("Creating topics")
     createTopics("count")
@@ -31,9 +30,6 @@ fun counter(consumerRecord: ConsumerRecord<String, String>) {
     println("got $key $index")
 
     memoryLeak.compute(key) { _: String, prev: Int? ->
-        if (prev == null)
-            1
-        else
-            prev + 1
+        (prev ?: 0) + 1
     }
 }

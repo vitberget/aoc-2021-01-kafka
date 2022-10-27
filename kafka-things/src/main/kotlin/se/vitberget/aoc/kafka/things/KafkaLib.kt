@@ -16,7 +16,8 @@ import java.time.Duration
 import java.util.*
 import java.util.concurrent.ExecutionException
 
-private val cloudConfig = loadPropFile("/home/k/src/aoc/aoc-kafka/kafka.properties")
+const val propertiesFilename = "/home/k/src/aoc/aoc-kafka/kafka.properties"
+private val cloudConfig = loadPropFile(propertiesFilename)
 
 private fun loadPropFile(filename: String): Properties =
     Properties().apply {
@@ -26,7 +27,7 @@ private fun loadPropFile(filename: String): Properties =
     }
 
 private val producerConfig =
-    loadPropFile("/home/k/src/aoc/aoc-kafka/kafka.properties").apply {
+    loadPropFile(propertiesFilename).apply {
         this[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
         this[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
     }
@@ -43,7 +44,7 @@ fun kafkaTo(topic: String, key: String, content: String) {
 }
 
 private fun consumerConfig(groudId: String) =
-    loadPropFile("/home/k/src/aoc/aoc-kafka/kafka.properties").apply {
+    loadPropFile(propertiesFilename).apply {
         this["group.id"] = groudId
         this[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
         this[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java

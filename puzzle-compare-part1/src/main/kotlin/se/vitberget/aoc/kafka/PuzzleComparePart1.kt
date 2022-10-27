@@ -1,6 +1,5 @@
 package se.vitberget.aoc.kafka
 
-
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import se.vitberget.aoc.kafka.things.createTopics
 import se.vitberget.aoc.kafka.things.kafkaFrom

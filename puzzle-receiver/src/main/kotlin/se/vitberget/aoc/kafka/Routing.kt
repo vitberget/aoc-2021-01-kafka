@@ -10,7 +10,6 @@ import se.vitberget.aoc.kafka.things.kafkaTo
 
 fun Application.configureRouting() {
     routing {
-
         static("/") {
             staticBasePackage = "static"
             resource("index.html")
