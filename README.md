@@ -1,21 +1,15 @@
 # AOC Kafka
 
-Having fun with Kafka and multiple Gradle modules.
+Having fun with Kafka and multiple Gradle modules, solving [advent of code from 2021 day 1](https://adventofcode.com/2021/day/1).
 
-## Game plan, apps
+Some say this can easily be solved with a [few lines of code](https://github.com/vitberget/advent-of-code-kotlin/blob/main/app/src/main/kotlin/se/vbgt/aoc/year2021/day1/Day1.kt). 
 
-### complete
+*I say no!*
 
-1. Page to enter puzzle
-2. puzzle -> lines
-3. compare numbers part1 -> send if increase
-4. sum increases, show on webpage
+Scrolling through the nearly endless 2000 lines of numbers, we can se that 
+this is a case for some big data methodology, so let us solve this with Kafka!
 
-### later
-
-5. compare numbers part2 -> send if increase
-
-## Get ready
+## Set up Kafka server
 
 <https://kafka.apache.org/quickstart>
 
@@ -33,3 +27,17 @@ Having fun with Kafka and multiple Gradle modules.
    ```sh
    bin/kafka-server-start.sh config/server.properties
    ```
+
+## Run the apps
+
+Start the apps:
+* [puzzle-receiver](puzzle-receiver/src/main/kotlin/se/vitberget/aoc/kafka/PuzzleReceiver.kt)
+  Which starts a webpage where you can paste in your personal puzzle. 
+* [puzzle-splitter](puzzle-splitter/src/main/kotlin/se/vitberget/aoc/kafka/PuzzleSplitter.kt)
+  Magic application that divides the entire puzzle into lines
+* [puzzle-counter](puzzle-counter/src/main/kotlin/se/vitberget/aoc/kafka/PuzzleCounter.kt)
+  Which starts a page which presents the results for part1 and/or part2
+
+The puzzle solving apps are:
+* [puzzle-compare-part1](puzzle-compare-part1/src/main/kotlin/se/vitberget/aoc/kafka/PuzzleComparePart1.kt)
+* [puzzle-compare-part2](puzzle-compare-part2/src/main/kotlin/se/vitberget/aoc/kafka/PuzzleComparePart2.kt)
