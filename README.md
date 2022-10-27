@@ -1,4 +1,4 @@
-# AOC Kafka
+# AOC 2021 day 1 - Kafka edition
 
 Having fun with Kafka and multiple Gradle modules, solving [advent of code from 2021 day 1](https://adventofcode.com/2021/day/1).
 
