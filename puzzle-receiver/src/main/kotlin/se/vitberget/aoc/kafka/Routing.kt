@@ -7,6 +7,7 @@ import io.ktor.server.http.content.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import se.vitberget.aoc.kafka.things.kafkaTo
+import java.util.*
 
 fun Application.configureRouting() {
     routing {
@@ -18,8 +19,9 @@ fun Application.configureRouting() {
 
         post("/") {
             val puzzle = call.receiveParameters()["puzzle-data"].toString()
-            kafkaTo("puzzle", puzzle)
-            call.respond(HttpStatusCode.Created, "Tack tack! $puzzle")
+            val uuid = UUID.randomUUID().toString()
+            kafkaTo("puzzle", uuid,  puzzle)
+            call.respond(HttpStatusCode.Created, "Tack tack! $uuid")
         }
     }
 }
